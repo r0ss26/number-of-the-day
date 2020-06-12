@@ -1,7 +1,13 @@
 async function getNumberOfTheDay() {
   // Get todays number from API then process it into JSON/
-  let response = await fetch('https://api.math.tools/numbers/nod');
-  let responseJSON = await response.json()
+  let response, responseJSON
+  try {
+    response = await fetch('https://api.math.tools/numbers/nod');
+    responseJSON = await response.json()
+  }
+  catch {
+    displayNumberOfTheDay('Oops, something went wrong!')
+  }
   console.log(responseJSON);
   
   let numberOfTheDay = responseJSON.contents.nod.numbers;
