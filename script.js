@@ -70,10 +70,3 @@ function displayNumberOfTheDayFacts(facts) {
 }
 
 getNumberOfTheDay()
-
-async function getRandomFact(number) {
-  let fact = await fetch(`https://api.math.tools/numbers/fact?number=${number}`);
-  console.log(fact)
-}
-
-getRandomFact(12);
