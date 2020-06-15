@@ -7,8 +7,8 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
 
 </head>
 <body>
@@ -38,13 +38,18 @@
   </div>
 
   <div class="middle">
-    <h1 class="title has-text-info">Number of the Day</h1>
-  
-    <h2 class="title" id="number-of-the-day"></h2>
+    <div class="loader"></div>
+    <div class="number-of-the-day">
+      <h1 class="title has-text-info">Number of the Day</h1>
+      <h2 class="title" id="number-of-the-day"></h2>
+    </div>
 
-    <h1 class="title has-text-info">Random Number Fact</h1>
-    <h2 id="random-number-fact" class="title"></h2>
-    <img id="new-fact" src="https://img.icons8.com/ios-glyphs/30/000000/refresh.png"/>
+    <div class="number-fact">
+      <div class="loader"></div>
+      <h1 class="title has-text-info">Random Number Fact</h1>
+      <h2 id="random-number-fact" class="title"></h2>
+      <img id="new-fact" src="https://img.icons8.com/ios-glyphs/30/000000/refresh.png"/>
+    </div>
   </div>
 
   <div class="right">
