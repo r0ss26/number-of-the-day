@@ -35,6 +35,7 @@ async function getNumberOfTheDay() {
     displayNumberOfTheDay(numberOfTheDay.bases.octal.value)
   })
 
+  
   document.querySelector('#romanNumeral').addEventListener('click', () => {
     displayNumberOfTheDay(numberOfTheDay.numerals.roman.display)
   })
@@ -76,3 +77,19 @@ function displayNumberOfTheDayFacts(facts) {
 }
 
 getNumberOfTheDay()
+
+async function getRandomNumberFact() {
+  let response = await fetch(`http://numbersapi.com/${Math.ceil(Math.random() * 100)}/trivia`)
+  let fact = await response.text();
+  displayRandomNumberFact(fact)
+}
+
+function displayRandomNumberFact(fact) {
+  document.querySelector('#random-number-fact').innerHTML = fact;
+}
+
+getRandomNumberFact();
+
+document.querySelector('#new-fact').addEventListener('click', () => {
+  getRandomNumberFact();
+})
