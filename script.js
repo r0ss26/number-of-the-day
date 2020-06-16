@@ -12,9 +12,12 @@ async function getNumberOfTheDay() {
   
   let numberOfTheDay = responseJSON.contents.nod.numbers;
 
-  // Render the decimal number and related facts/
+  // Render the decimal number and related facts
   displayNumberOfTheDay(numberOfTheDay.number)
   displayNumberOfTheDayFacts(numberOfTheDay['general-facts'])
+  document.querySelector('#nod-spinner').style.display = "none";
+  document.querySelector('#facts-spinner').style.display = "none";
+
 
   // Event Listeners for displaying different number formats.
   document.querySelector('#decimalConversion').addEventListener('click', () => {
@@ -78,10 +81,12 @@ function displayNumberOfTheDayFacts(facts) {
 
 getNumberOfTheDay()
 
+
 async function getRandomNumberFact() {
-  let response = await fetch(`http://numbersapi.com/${Math.ceil(Math.random() * 100)}/trivia`)
+  let response = await fetch(`http://numbersapi.com/random/trivia`)
   let fact = await response.text();
   displayRandomNumberFact(fact)
+  document.querySelector('#fact-spinner').style.display = "none";
 }
 
 function displayRandomNumberFact(fact) {
@@ -90,6 +95,10 @@ function displayRandomNumberFact(fact) {
 
 getRandomNumberFact();
 
-document.querySelector('#new-fact').addEventListener('click', () => {
-  getRandomNumberFact();
+document.querySelector('#new-fact').addEventListener('click', async () => {
+  document.querySelector('#random-number-fact').style.display = "none";
+  document.querySelector('#fact-spinner').style.display = "inline-block";
+  await getRandomNumberFact();
+  document.querySelector('#random-number-fact').style.display = "block";
+  document.querySelector('#fact-spinner').style.display = "none";
 })
