@@ -9,11 +9,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
-  <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
-
   <div class="left">
     <div class="bases-buttons section">
       <h2 class="subtitle align-text-center">Bases</h2>
@@ -45,11 +43,12 @@
       <h2 class="title" id="number-of-the-day"></h2>
     </div>
 
-    <div class="number-fact">
-      <h1 class="title has-text-info">Random Number Fact</h1>
-      <div id="fact-spinner" class="spinner-border text-success"></div>
-      <h2 id="random-number-fact" class="title"></h2>
-      <img id="new-fact" src="https://img.icons8.com/ios-glyphs/30/000000/refresh.png"/>
+    <div class="math-trivia">
+      <h1 class="title has-text-info">Math Trivia!</h1>
+      <div id="trivia-spinner" class="spinner-border text-success"></div>
+      <h2 id="math-trivia-question" class="title"></h2>
+      <input id="answer" type="text" placeholder="Answer">
+      <button id="submit">Check</button>
     </div>
   </div>
 
@@ -63,6 +62,5 @@
 
 
 
-  <script src="script.js"></script>
 </body>
 </html>

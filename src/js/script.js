@@ -1,3 +1,9 @@
+import num from './test'
+const x = 23;
+console.log(num, x);
+
+import '../style.css'
+
 async function getNumberOfTheDay() {
   // Get todays number from API then process it into JSON/
   let response, responseJSON
@@ -82,23 +88,86 @@ function displayNumberOfTheDayFacts(facts) {
 getNumberOfTheDay()
 
 
-async function getRandomNumberFact() {
-  let response = await fetch(`http://numbersapi.com/random/trivia`)
-  let fact = await response.text();
-  displayRandomNumberFact(fact)
-  document.querySelector('#fact-spinner').style.display = "none";
+
+async function getMathTrivia() {
+  let response = await fetch('https://jservice.io/api/category?id=969');
+  let data = await response.json();
+  
+  console.log(data);
+  
+  displayMathTrivia(data);
+  
+  
 }
 
-function displayRandomNumberFact(fact) {
-  document.querySelector('#random-number-fact').innerHTML = fact;
+function displayMathTrivia(questions) {
+  let questionNode = document.querySelector('#math-trivia-question');
+  let questionData = questions.clues[1];
+  document.querySelector('#trivia-spinner').style.display = "none";
+  
+  console.log('here');
+  
+  questionNode.innerText = questionData.question;
 }
 
-getRandomNumberFact();
+getMathTrivia();
 
-document.querySelector('#new-fact').addEventListener('click', async () => {
-  document.querySelector('#random-number-fact').style.display = "none";
-  document.querySelector('#fact-spinner').style.display = "inline-block";
-  await getRandomNumberFact();
-  document.querySelector('#random-number-fact').style.display = "block";
-  document.querySelector('#fact-spinner').style.display = "none";
-})
+
+
+function checkAnswer(question, answer) {
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// async function getRandomNumberFact() {
+//   let response, fact;
+//   try {
+//     response = await fetch(`http://numbersapi.com/random/trivia`)
+//     fact = await response.text();
+//   } catch (error) {
+//     displayRandomNumberFact('Oops! Something went wrong.')
+//   }
+//   displayRandomNumberFact(fact)
+//   document.querySelector('#fact-spinner').style.display = "none";
+// }
+
+// function displayRandomNumberFact(fact) {
+//   document.querySelector('#random-number-fact').innerHTML = fact;
+// }
+
+// getRandomNumberFact();
+
+// document.querySelector('#new-fact').addEventListener('click', async () => {
+//   document.querySelector('#random-number-fact').style.display = "none";
+//   document.querySelector('#fact-spinner').style.display = "inline-block";
+//   await getRandomNumberFact();
+//   document.querySelector('#random-number-fact').style.display = "block";
+//   document.querySelector('#fact-spinner').style.display = "none";
+// })
