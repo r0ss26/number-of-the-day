@@ -1,7 +1,3 @@
-import num from './test'
-const x = 23;
-console.log(num, x);
-
 import '../style.css'
 
 async function getNumberOfTheDay() {
@@ -117,6 +113,8 @@ getMathTrivia();
 function checkAnswer(question, answer) {
   
 }
+
+document.querySelector('#submit', checkAnswer)
 
 
 
