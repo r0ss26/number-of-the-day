@@ -37,25 +37,26 @@
   </div>
 
   <div class="middle">
+    <h1 class="number-of-the-day-title title has-text-info">Number of the Day</h1>
     <div class="number-of-the-day">
-      <h1 class="title has-text-info">Number of the Day</h1>
-      <div id="nod-spinner" class="spinner-border text-success"></div>
-      <h2 class="title" id="number-of-the-day"></h2>
+      <h2 id="number-of-the-day"></h2>
     </div>
 
-    <div class="math-trivia">
-      <h1 class="title has-text-info">Math Trivia!</h1>
-      <div id="trivia-spinner" class="spinner-border text-success"></div>
+    <h1 class="title has-text-info">Math Trivia!</h1>
+    <div class="math-trivia-question">
       <h2 id="math-trivia-question" class="title"></h2>
-      <input id="answer" type="text" placeholder="Answer">
-      <button id="submit">Check</button>
+    </div>
+
+    <input id="answer" type="text" placeholder="Answer">
+    <button id="submit">Check</button>
+    <button id="new-question">New Question</button>
+    <div class="current-score title is-block">Score: <span id="score">0</span></div>
     </div>
   </div>
 
   <div class="right">
     <div class="box">
       <h2 class="title">Facts</h2>
-      <div id="facts-spinner" class="spinner-border text-success"></div>
       <ul id="number-of-the-day--facts"></ul>
     </div>
   </div>
