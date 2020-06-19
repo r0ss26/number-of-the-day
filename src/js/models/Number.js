@@ -8,7 +8,6 @@ export default class NumberOfTheDay {
     }
     catch(error) {
       console.log(error);
-      alert('Oops, something went wrong!')
     }
   }
 }

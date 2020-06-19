@@ -8,7 +8,10 @@ import * as triviaView from './views/triviaView';
 const state = {
   trivia: {
     questions: null,
-    score: 0,
+    score: {
+      points: 0,
+      totalQuestions: -1,
+    },
     answered: []
   }
 };
@@ -25,11 +28,11 @@ const controlNumberOfTheDay = async () => {
     await state.numberOfTheDay.getNumber();
     numberView.displayNumber(state.numberOfTheDay.numberData.number);
     numberView.displayFacts(state.numberOfTheDay.numberData['general-facts'])
+    clearLoader(elements.factsList);
   } catch(error) {
-    alert('Oops! Something went wrong.')
+    console.log(error);
   }
   
-  clearLoader(elements.factsList);
   if (state.numberOfTheDay.numberData) setupEventListeners();
 }
 controlNumberOfTheDay();
@@ -93,7 +96,6 @@ const controlTrivia = async () => {
     questions = await trivia.getQuestions();
     state.trivia.questions = questions;
   } catch (error) {
-    alert('Oops! Something went wrong.')
     console.log(error)
   }
   clearLoader(elements.triviaQuestion);
@@ -101,15 +103,19 @@ const controlTrivia = async () => {
   const updateQuestion = () => {
     state.trivia.currentQuestion = questions.clues[Math.floor(Math.random() * questions.clues.length)];
     triviaView.displayQuestion(state.trivia.currentQuestion.question);
+    state.trivia.score.totalQuestions++;
+    triviaView.updateScore(state.trivia.score);
   }
   updateQuestion();
 
   elements.submitAnswerButton.addEventListener('click', () => {
     if (state.trivia.currentQuestion.answer.toLowerCase() === elements.triviaAnswer.value.toLowerCase()) {
-      state.trivia.score++;
+      state.trivia.score.points++;
       elements.triviaScore.innerText = state.trivia.score;
       updateQuestion();
     }
   })
+
+  elements.newQuestion.addEventListener('click', updateQuestion)
 }
 controlTrivia();

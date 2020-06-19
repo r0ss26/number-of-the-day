@@ -6,7 +6,6 @@ export default class Trivia {
       data = await response.json();
       return data;
     } catch (error) {
-      alert('Oops! Something went wrong');
       console.log(error);
     }
   }

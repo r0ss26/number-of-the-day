@@ -12,9 +12,9 @@
 
 </head>
 <body>
-  <div class="left">
+  <div class="col-1">
     <div class="bases-buttons section">
-      <h2 class="subtitle align-text-center">Bases</h2>
+      <h2 class="title align-text-center">Bases</h2>
       <button class="button is-primary" id="decimalConversion">Decimal</button>
       <button class="button is-primary" id="binaryConversion">Binary</button>
       <button class="button is-primary" id="hexConversion">Hexadecimal</button>
@@ -22,21 +22,21 @@
     </div>
 
     <div class="numerals-buttons section">
-      <h2 class="subtitle align-text-center">Numerals</h2>
+      <h2 class="title align-text-center">Numerals</h2>
       <button class="button is-link " id="romanNumeral">Roman</button>
       <button class="button is-link " id="babylonianNumeral">Babylonian</button>
-      <button class="button is-link " id="chineseNumeral">Chinese</button>
+      <button class="button is-link " id="chineseNumeral">Mandarin</button>
     </div>
 
     <div class="operations-buttons section">
-      <h2 class="subtitle align-text-center">Operations</h2>
+      <h2 class="title align-text-center">Operations</h2>
       <button class="button is-info " id="numberOfDigits">Number of Digits</button>
       <button class="button is-info " id="reverseDigits">Reverse</button>
       <button class="button is-info " id="sumOfDigits">Sum Of Digits</button>
     </div>
   </div>
 
-  <div class="middle">
+  <div class="col-2">
     <h1 class="number-of-the-day-title title has-text-info">Number of the Day</h1>
     <div class="number-of-the-day">
       <h2 id="number-of-the-day"></h2>
@@ -44,21 +44,18 @@
 
     <h1 class="title has-text-info">Math Trivia!</h1>
     <div class="math-trivia-question">
-      <h2 id="math-trivia-question title"></h2>
+      <h2 id="math-trivia-question" class="title"></h2>
     </div>
 
-    <input id="answer" type="text" placeholder="Answer">
-    <button id="submit">Check</button>
-    <div class="current-score title is-block">Score: <span id="score">0</span></div>
-
-
-
-
-
+    <div class="answer-controls section">
+      <input id="answer" type="text" class="input is-inline" placeholder="Answer">
+      <button id="submit" class="button is-primary is-inline">Check</button>
+      <button id="new-question" class="button is-warning is-inline">New Question</button>
+      <div class="current-score title is-block section">Score: <span id="score">0</span>/<span id="total-questions">0</span></div>
     </div>
   </div>
 
-  <div class="right">
+  <div class="col-3">
     <div class="box">
       <h2 class="title">Facts</h2>
       <ul id="number-of-the-day--facts"></ul>

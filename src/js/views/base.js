@@ -21,7 +21,9 @@ export const elements = {
   triviaQuestion: document.querySelector('.math-trivia-question'),
   triviaQuestionText: document.querySelector('#math-trivia-question'),
   triviaAnswer: document.querySelector('#answer'),
-  triviaScore: document.querySelector('#score')
+  triviaScore: document.querySelector('#score'),
+  newQuestion: document.querySelector('#new-question'),
+  questionsCount: document.querySelector('#total-questions')
 };
 
 export const elementStrings = {
